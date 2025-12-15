@@ -1,10 +1,8 @@
 #range(start, end, step)
-for number in range(1, 101):
-    if number % 3 == 0:
-        print("Fizz")
-    elif number % 5 == 0:
-        print("Buzz")
-    elif number % 3 == 0 and number % 5 == 0:
-        print("FizzBuzz")
-    else:
-        print(number)
+for number in range(1, 11, 2):
+    print(number)
+    
+total = 0
+for number_1 in range(1, 101):
+    total += number_1
+print(total)
