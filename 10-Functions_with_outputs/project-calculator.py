@@ -10,6 +10,12 @@ def mult(a, b):
 def div(a, b):
     return a / b
 
+operations = {
+    "+": add,
+    "-": substract,
+    "*": mult,
+    "/": div
+}
 new_op = True
 menu = True
 print("Welcome to the calculator")
@@ -21,18 +27,8 @@ while menu == True:
     
     operation = input("What do you want to do(+ - * /): ")
     second_number = int(input("Enter your second number: "))
-    if operation == "+":
-        result = add(first_number, second_number)
-        print(f"The result of {first_number} {operation} {second_number} is: " + str(result)) 
-    elif operation == "-":
-        result = substract(first_number, second_number)
-        print(f"The result of {first_number} {operation} {second_number} is {result}")
-    elif operation == "*":
-        result = mult(first_number, second_number)
-        print(f"The result of {first_number} {operation} {second_number} is {result}")
-    elif operation == "/":
-        result = div(first_number, second_number)
-        print(f"The result of {first_number} {operation} {second_number} is: {result}")
+    result = operations[operation](first_number, second_number)
+    print(f"The result of {first_number} {operation} {second_number} is: {result}")
     op_menu = True  
     while op_menu == True:
         continue_op = input(f"Do you want to continue operating with {result} or make a new operation? y or n(type exit to finish): ").lower()
