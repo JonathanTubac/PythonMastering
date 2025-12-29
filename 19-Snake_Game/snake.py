@@ -23,7 +23,14 @@ class Snake:
         snake_body.shape("square")
         snake_body.color("green")
         self.snake.append(snake_body)
-            
+    
+    def reset(self):
+        for snake_body in self.snake:
+            snake_body.goto(10000, 10000)
+        self.snake.clear()
+        self.create_snake()
+        self.head = self.snake[0]
+         
     def move(self):
         for snake_body in range(len(self.snake) - 1, 0, -1):
             next_body_x = self.snake[snake_body - 1].xcor()
