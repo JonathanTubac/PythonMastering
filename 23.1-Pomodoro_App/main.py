@@ -71,12 +71,11 @@ window = Tk()
 window.config(padx=100, pady=50, bg=YELLOW)
 window.title("Pomodoro App")
 
-
 tittle_label = Label(text="Timer", fg=GREEN, font=(FONT_NAME, 36, "bold"), bg=YELLOW)
 tittle_label.grid(column=1, row=0)
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 
-#We do this because the create_image method don't support a path file
+#We do this because the create_image method doesn't support a path file
 tomato_image = PhotoImage(file="23.1-Pomodoro_App/tomato.png")
 canvas.create_image(100, 112, image=tomato_image)
 canvas.grid(column=1, row=1)
