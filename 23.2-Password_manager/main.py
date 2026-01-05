@@ -63,13 +63,19 @@ def add_info_to_file():
             "password": password_input.get()
         }
     }
+    
     if is_ok and not is_null_entries:
-        with open(PASSWORD_FILE_PATH, "r") as file:
-            data = json.load(file)
-            data.update(new_data)
-            
-        with open(PASSWORD_FILE_PATH, "w") as file:
-            json.dump(data, file, indent=4)
+        try:
+            with open(PASSWORD_FILE_PATH, "r") as file:
+                data = json.load(file)
+                data.update(new_data)
+        except FileNotFoundError:
+            with open(PASSWORD_FILE_PATH, "w") as file:
+                json.dump(new_data, file, indent=4)
+        else:
+            with open(PASSWORD_FILE_PATH, "w") as file:
+                json.dump(data, file, indent=4)
+                
     elif is_null_entries:
         messagebox.showwarning(title="Fields missing", message="Please don't enter null data")
 
