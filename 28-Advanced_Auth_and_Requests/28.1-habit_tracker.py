@@ -1,9 +1,11 @@
 import requests as req
 from datetime import datetime
+
 PIXELA_ENDPOINT = "https://pixe.la/v1/users"
 USERNAME = "mordecaa"
 TOKEN = "fwafsafw"
 GRAPH_ID = "graph1"
+
 user_params = {
     "token": TOKEN,
     "username": USERNAME,
