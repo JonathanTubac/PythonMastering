@@ -28,7 +28,7 @@ soup = BeautifulSoup(response.text, "html.parser")
 price = soup.find(class_="aok-offscreen").getText()
 formatted_price = float(price.replace(",", ".").replace("€", ""))
 
-#We validate the price and send a email
+#We validate the price and send an email
 if formatted_price < TARGET_PRICE:
     with SMTP("smtp.gmail.com", 587) as con:
         con.starttls()
